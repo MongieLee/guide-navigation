@@ -170,11 +170,13 @@ $('#addSite').on('click', function () {
     url: inputUrl
   });
   rander();
-}); // window.onbeforeunload = ()=>{
-//     const string = JSON.stringify(hashMap) //对象转为字符串
-//     localStorage.setItem('x',string)
-// }
-// $(document).on('keypress',(e)=>{ //只能打开一个匹配到到第一个网址，待优化
+});
+
+window.onbeforeunload = function () {
+  var string = JSON.stringify(hashMap); //对象转为字符串
+
+  localStorage.setItem('x', string);
+}; // $(document).on('keypress',(e)=>{ //只能打开一个匹配到到第一个网址，待优化
 //     let {key} = e
 //     hashMap.map((node,index)=>{
 //         if(hashMap[index].logo.toLocaleLowerCase() === key){
@@ -183,4 +185,4 @@ $('#addSite').on('click', function () {
 //     })
 // })
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.04afc3aa.js.map
+//# sourceMappingURL=main.20e3d31e.js.map

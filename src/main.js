@@ -62,10 +62,10 @@ $('#addSite').on('click', () => {
 })
 
 
-// window.onbeforeunload = ()=>{
-//     const string = JSON.stringify(hashMap) //对象转为字符串
-//     localStorage.setItem('x',string)
-// }
+window.onbeforeunload = ()=>{
+    const string = JSON.stringify(hashMap) //对象转为字符串
+    localStorage.setItem('x',string)
+}
 
 // $(document).on('keypress',(e)=>{ //只能打开一个匹配到到第一个网址，待优化
 //     let {key} = e
