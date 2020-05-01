@@ -3,14 +3,17 @@ const xObject = JSON.parse(localStorage.getItem('x'))
 
 
 const hashMap = xObject || [
-    { logo: 'A', url: 'https://www.acfun.cn' },
-    { logo: 'B', url: 'https://www.bilibili.com' }
+    { logo: 'A', url: 'https://www.bilibili.cn' },
+    { logo: 'W', url: 'https://wallhaven.cc/' },
+    { logo: 'T', url: 'https://taobao.com/' },
+    { logo: 'J', url: 'https://jd.com' },
+    { logo: 'I', url: 'https://iqiyi.com' }
 ]
 
-function rander(){
+function rander() {
     $('.site-list').find('li:not(#addSite)').remove()
 
-    hashMap.map((node,index)=>{
+    hashMap.map((node, index) => {
         const $li = $(`<li>
         <div class="site">
             <div class='icon-wrapper'>
@@ -26,22 +29,22 @@ function rander(){
             </div>
         </div>
     </li>`).insertBefore($lastLi)
-        $li.on('click',()=>{
+        $li.on('click', () => {
             window.open(node.url)
         })
-        $li.on('click','.close',(e)=>{
+        $li.on('click', '.close', (e) => {
             e.stopPropagation() //阻止事件冒泡
-            hashMap.splice(index,1)
+            hashMap.splice(index, 1)
             rander()
         })
     })
 }
 
-const removePrefix = (url)=>{
-    return url.replace('https://','')
-    .replace('http://','')
-    .replace('www.','')
-    .replace(/\/.*/,'') //删除/开头的内容
+const removePrefix = (url) => {
+    return url.replace('https://', '')
+        .replace('http://', '')
+        .replace('www.', '')
+        .replace(/\/.*/, '') //删除/开头的内容
 }
 
 rander()
@@ -52,23 +55,23 @@ $('#addSite').on('click', () => {
         inputUrl = 'https://' + inputUrl
     }
     hashMap.push({
-        logo:removePrefix(inputUrl)[0].toUpperCase(),
-        url:inputUrl
+        logo: removePrefix(inputUrl)[0].toUpperCase(),
+        url: inputUrl
     })
     rander()
 })
 
 
-window.onbeforeunload = ()=>{
-    const string = JSON.stringify(hashMap) //对象转为字符串
-    localStorage.setItem('x',string)
-}
+// window.onbeforeunload = ()=>{
+//     const string = JSON.stringify(hashMap) //对象转为字符串
+//     localStorage.setItem('x',string)
+// }
 
-$(document).on('keypress',(e)=>{ //只能打开一个匹配到到第一个网址，待优化
-    let {key} = e
-    hashMap.map((node,index)=>{
-        if(hashMap[index].logo.toLocaleLowerCase() === key){
-            window.open(node.url)
-        }
-    })
-})
+// $(document).on('keypress',(e)=>{ //只能打开一个匹配到到第一个网址，待优化
+//     let {key} = e
+//     hashMap.map((node,index)=>{
+//         if(hashMap[index].logo.toLocaleLowerCase() === key){
+//             window.open(node.url)
+//         }
+//     })
+// })
