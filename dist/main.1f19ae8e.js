@@ -118,27 +118,67 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"main.js":[function(require,module,exports) {
-var hashMap = [{
+var $lastLi = $('#addSite');
+var xObject = JSON.parse(localStorage.getItem('x'));
+var hashMap = xObject || [{
   logo: 'A',
   url: 'https://www.acfun.cn'
 }, {
   logo: 'B',
   url: 'https://www.bilibili.com'
 }];
-var $siteList = $('a:not(#addSite)').remove();
-console.log($siteList);
+
+function rander() {
+  $('.site-list').find('li:not(#addSite)').remove();
+  hashMap.map(function (node, index) {
+    var $li = $("<li>\n        <div class=\"site\">\n            <div class='icon-wrapper'>\n                ".concat(node.logo, "\n            </div>\n            <div class=\"link\">\n                ").concat(removePrefix(node.url), "\n            </div>\n            <div class='close'>\n                <svg class=\"icon\">\n                    <use xlink:href=\"#icon-remove\"></use>\n                </svg>\n            </div>\n        </div>\n    </li>")).insertBefore($lastLi);
+    $li.on('click', function () {
+      window.open(node.url);
+    });
+    $li.on('click', '.close', function (e) {
+      e.stopPropagation(); //阻止事件冒泡
+
+      hashMap.splice(index, 1);
+      rander();
+    });
+  });
+}
+
+var removePrefix = function removePrefix(url) {
+  return url.replace('https://', '').replace('http://', '').replace('www.', '').replace(/\/.*/, ''); //删除/开头的内容
+};
+
+rander();
 $('#addSite').on('click', function () {
-  var inputUrl = window.prompt('Please enter site\'s url：');
+  var inputUrl = window.prompt('Please enter site\'s url：').trim();
 
   if (inputUrl.indexOf('http') !== 0) {
     inputUrl = 'https://' + inputUrl;
-    var start = inputUrl.indexOf('/') + 2;
-    var iconText = inputUrl.slice(start, start + 1).toUpperCase();
-    console.log(iconText);
-    var newSite = $("<a href=\"".concat(inputUrl, "\">\n        <li>\n            <div class=\"site\">\n                <div class='icon-wrapper'>\n                    ").concat(iconText, "\n                </div>\n                <div class=\"link\">\n                    ").concat(inputUrl, "\n                </div>\n            </div>\n        </li>\n        </a>")).insertBefore($('#addSite'));
   }
+
+  hashMap.push({
+    logo: removePrefix(inputUrl)[0].toUpperCase(),
+    url: inputUrl
+  });
+  rander();
 });
-},{}],"C:/Users/TestEngineer/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+window.onbeforeunload = function () {
+  var string = JSON.stringify(hashMap); //对象转为字符串
+
+  localStorage.setItem('x', string);
+};
+
+$(document).on('keypress', function (e) {
+  //只能打开一个匹配到到第一个网址，待优化
+  var key = e.key;
+  hashMap.map(function (node, index) {
+    if (hashMap[index].logo.toLocaleLowerCase() === key) {
+      window.open(node.url);
+    }
+  });
+});
+},{}],"../../../.config/yarn/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -166,7 +206,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59622" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53558" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -342,5 +382,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/TestEngineer/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js","main.js"], null)
+},{}]},{},["../../../.config/yarn/global/node_modules/parcel/src/builtins/hmr-runtime.js","main.js"], null)
 //# sourceMappingURL=/main.1f19ae8e.js.map

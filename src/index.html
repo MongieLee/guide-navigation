@@ -4,46 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>引路者导航 - 前端导航网站</title>
+    <title>Guide Navigation</title>
     <link rel="stylesheet" href="./style.css">
-    <style>
-
-    </style>
+    <link rel="icon" href="/images/favicon.ico">
 </head>
 
 <body>
     <header class="site-header">
+
+        <div class="lemon">
+            <svg class="icon">
+                <use xlink:href="#icon-lemon"></use>
+            </svg>
+        </div>
         <form class="select-form" action="https://www.baidu.com/s" method="get">
-            <input name="wd" type="text">
+            <input placeholder="输入查询内容（使用百度搜索引擎）" name="wd" type="text">
             <button type="submit">百度搜索</button>
         </form>
+
     </header>
     <main class="site-main">
         <ul class='site-list'>
-            <a href="https://www.bilibili.com">
-                <li>
-                    <div class="site">
-                        <div class='icon-wrapper'>
-                            <img src="./images/bilibili.png" alt="bilibili">
-                        </div>
-                        <div class="link">
-                            bilibili.com
-                        </div>
-                    </div>
-                </li>
-            </a>
-            <a href="#">
-                <li>
-                    <div class="site">
-                        <div class='icon-wrapper'>
-                            B
-                        </div>
-                        <div class="link">
-                            acfun.com
-                        </div>
-                    </div>
-                </li>
-            </a>
             <li id="addSite">
                 <div class="add-site">
                     <div class='icon-wrapper'>
@@ -61,7 +42,7 @@
     <footer class="site-footer">
     </footer>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
-    <script src="//at.alicdn.com/t/font_1790324_rmdm7ov432.js"></script>
+    <script src="//at.alicdn.com/t/font_1790324_5qizli5548.js"></script>
     <script src="./main.js"></script>
 </body>
 
