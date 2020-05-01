@@ -1,9 +1,8 @@
 const $lastLi = $('#addSite')
 const xObject = JSON.parse(localStorage.getItem('x'))
 
-
 const hashMap = xObject || [
-    { logo: 'B', url: 'https://www.bilibili.cn' },
+    { logo: 'B', url: 'https://www.bilibili.com' },
     { logo: 'W', url: 'https://wallhaven.cc/' },
     { logo: 'T', url: 'https://taobao.com/' },
     { logo: 'J', url: 'https://jd.com' },

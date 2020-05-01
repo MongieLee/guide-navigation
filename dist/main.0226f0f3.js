@@ -122,7 +122,7 @@ var $lastLi = $('#addSite');
 var xObject = JSON.parse(localStorage.getItem('x'));
 var hashMap = xObject || [{
   logo: 'B',
-  url: 'https://www.bilibili.cn'
+  url: 'https://www.bilibili.com'
 }, {
   logo: 'W',
   url: 'https://wallhaven.cc/'
@@ -185,4 +185,4 @@ window.onbeforeunload = function () {
 //     })
 // })
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.2768e453.js.map
+//# sourceMappingURL=main.0226f0f3.js.map
