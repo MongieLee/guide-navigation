@@ -121,7 +121,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var $lastLi = $('#addSite');
 var xObject = JSON.parse(localStorage.getItem('x'));
 var hashMap = xObject || [{
-  logo: 'A',
+  logo: 'B',
   url: 'https://www.bilibili.cn'
 }, {
   logo: 'W',
@@ -185,4 +185,4 @@ window.onbeforeunload = function () {
 //     })
 // })
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.20e3d31e.js.map
+//# sourceMappingURL=main.2768e453.js.map
