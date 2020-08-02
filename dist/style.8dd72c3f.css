@@ -47,6 +47,12 @@ img{max-width: 100%;max-height: 100%;}
     border:none;
     border:1px solid #ddd;
     border-radius:4px;
+    outline: none;
+}
+
+.select-form input:hover,.select-form input:focus{
+    border:1px solid #999;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,.5);
 }
 .select-form button{
     white-space:nowrap;
@@ -189,4 +195,4 @@ img{max-width: 100%;max-height: 100%;}
     }
 }
 
-/*# sourceMappingURL=style.49847a3b.css.map */
+/*# sourceMappingURL=style.8dd72c3f.css.map */

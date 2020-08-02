@@ -121,20 +121,29 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var $lastLi = $('#addSite');
 var xObject = JSON.parse(localStorage.getItem('x'));
 var hashMap = xObject || [{
+  logo: 'A',
+  url: 'https://ant.design/index-cn'
+}, {
   logo: 'B',
-  url: 'https://www.bilibili.com'
+  url: 'https://www.bootcdn.cn/'
 }, {
   logo: 'W',
   url: 'https://wallhaven.cc/'
 }, {
-  logo: 'T',
-  url: 'https://taobao.com/'
+  logo: 'I',
+  url: 'https://www.iconfont.cn/'
 }, {
   logo: 'J',
-  url: 'https://jd.com'
+  url: 'https://juejin.im/'
 }, {
-  logo: 'I',
-  url: 'https://iqiyi.com'
+  logo: 'S',
+  url: 'https://segmentfault.com/'
+}, {
+  logo: 'E',
+  url: 'https://element.eleme.cn/#/zh-CN'
+}, {
+  logo: 'C',
+  url: 'https://cli.im/'
 }];
 
 function rander() {
@@ -185,4 +194,4 @@ window.onbeforeunload = function () {
 //     })
 // })
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.0226f0f3.js.map
+//# sourceMappingURL=main.dc02b6e1.js.map

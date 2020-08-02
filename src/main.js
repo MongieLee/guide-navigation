@@ -2,11 +2,14 @@ const $lastLi = $('#addSite')
 const xObject = JSON.parse(localStorage.getItem('x'))
 
 const hashMap = xObject || [
-    { logo: 'B', url: 'https://www.bilibili.com' },
+    { logo: 'A', url: 'https://ant.design/index-cn' },
+    { logo: 'B', url: 'https://www.bootcdn.cn/' },
     { logo: 'W', url: 'https://wallhaven.cc/' },
-    { logo: 'T', url: 'https://taobao.com/' },
-    { logo: 'J', url: 'https://jd.com' },
-    { logo: 'I', url: 'https://iqiyi.com' }
+    { logo: 'I', url: 'https://www.iconfont.cn/' },
+    { logo: 'J', url: 'https://juejin.im/' },
+    { logo: 'S', url: 'https://segmentfault.com/' },
+    { logo: 'E', url: 'https://element.eleme.cn/#/zh-CN' },
+    { logo: 'C', url: 'https://cli.im/' }
 ]
 
 function rander() {
@@ -61,9 +64,9 @@ $('#addSite').on('click', () => {
 })
 
 
-window.onbeforeunload = ()=>{
+window.onbeforeunload = () => {
     const string = JSON.stringify(hashMap) //对象转为字符串
-    localStorage.setItem('x',string)
+    localStorage.setItem('x', string)
 }
 
 // $(document).on('keypress',(e)=>{ //只能打开一个匹配到到第一个网址，待优化
